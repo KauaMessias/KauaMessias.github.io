@@ -40,13 +40,15 @@ body {
 }
 
 header {
-    display: flex;
     box-sizing: border-box;
+    display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem 3rem;
+    justify-content: space-between;
     background: #1e2d53;
+    position: sticky;
+    top: 0;
 }
 
 .logo {
@@ -122,7 +124,9 @@ a {
 .btn:hover{
     background-color: #091432;
 }
-
+.bx{
+    padding: 10px;
+}
 .btn-scroll {
     display: flex;
     align-items: center;
@@ -132,7 +136,7 @@ a {
     width: 50px;
     height: 50px;
     border-radius: 999px;
-    margin: 100px auto 150px;
+    margin: 90px auto 0px;
     cursor: pointer;
 }
 
@@ -140,9 +144,13 @@ i {
     color: #FFF;
 }
 
-#sobre, #projetos, .principal {
-    padding: 0 9%;
+#sobre, #projetos{
+    padding: 60px 9% 0;
     margin-top: 25px;   
+}
+.principal {
+    padding: 0 9%;
+    margin-top: 0px;
 }
 
 #sobre h2, #projetos h2 {
@@ -246,12 +254,17 @@ input {
 #menu a{
     display: flex;
     gap: .5rem;
-    
+    padding: .75rem;
 }
+#btn-mobile{
+display: none;
+}
+
 @media screen and (max-width: 1024px) {
     header{
         box-sizing: border-box;
         height: 70px;
+        width: 100%;
         padding: 1rem;
         display: flex;
         align-items: center;
@@ -261,12 +274,12 @@ input {
     .wrapper{
         display: none;
     }
-
-    #btn-mobile{
-        display: block;
-    }
     a:hover{
-        background: rgb(0, 0, 0);
+        background: #273b6dc5;
+    }
+    .navigation1:hover {
+   
+        color:rgb(255, 255, 255)
     }
     ul{
         margin: 0px;
@@ -299,15 +312,49 @@ input {
     }
     #menu a{
         padding: 1rem 0;
-      
         margin: 0 1rem;
-        border-bottom: 2px solid rgb(37, 37, 37);
+        border-bottom: 2px solid rgb(226, 226, 226);
     }
     
     #navigation.active #menu{
      height: calc(100vh - 64px);
      visibility: visible;
      overflow-y: auto;
+    }
+
+    #btn-mobile{
+        display: flex;
+        padding: .5rem 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    #menuMobile{
+        color: #FFF;
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #menuMobile::after, #menuMobile::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    #navigation.active #menuMobile{
+        border-top-color: transparent;
+    }
+    #navigation.active #menuMobile::before{
+      transform: rotate(135deg);
+    }
+    #navigation.active #menuMobile::after{
+        transform: rotate(-135deg);
+        top: -7px;
+
     }
    
     .navigation {
@@ -324,7 +371,6 @@ input {
     .main-text h1 {
         font-size: 2rem;
     }
-
 
     #sobre {
         margin-top: 16vh;
@@ -363,14 +409,11 @@ input {
     .logo{
         width: 100%;
     }
-    .navigation{
-        
-    }
     #apoie form {
         display: flex;
         width: auto;
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         grid-template-columns: 1fr;
         
     }

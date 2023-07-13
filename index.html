@@ -27,33 +27,44 @@
             <img src="./assets/waves.png" alt="Logo da OceanPreserve">
             <span>OceanPreserve</span>
         </div>
+        
         <nav id="navigation">
-            <ul id="menu">
+            <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">
+                 <span id="menuMobile"></span>
+                </button>
+            <ul id="menu" role="menu">
                 <li><a class="navigation1" href="#">Home</a></li>
                 <li><a class="navigation1" href="#sobre">Sobre</a></li>
                 <li><a class="navigation1" href="#projetos">Projetos</a></li>
-                <li><a class="navigation1" href="#apoie">Apoie</a></li>
+                <li><a class="navigation1" href="#apoie">Aprendendo </a></li>
+                <li><a class="navigation1" href="./jogos/jogo.html">Jogo</a></li>
+                <li><a class="navigation1" href="./quiz/quiz.html">Quiz</a></li>
             </ul>
         </nav>
         
         <div class="wrapper">
             <a href="index2.html"><button class="btn">Fonte</button></a>
         </div>
-        <div class="cta">
-            <a href="#apoie" class="btn2"></a>
-        </div>
-        <button id="btn-mobile">Menu</button>
+        
         <script>
-
             const btnMobile = document.getElementById('btn-mobile');
-            function toggleMenu() {
+            function toggleMenu(event) {
+                if (event.type === 'touchstart') event.preventDefault();
                 const nav = document.getElementById('navigation');
                 nav.classList.toggle('active');
+                const active = nav.classList.contains('active');
+                event.currentTarget.setAttribute('aria-expanded', active);
+                if (active){ event.currentTarget.setAttribute('arial-label', 'Fechar Menu');
+
+            }else{
+                event.currentTarget.setAttribute('arial-label', 'Abrir Menu');
             }
+        }
+            btnMobile.addEventListener('click', toggleMenu);
+            btnMobile.addEventListener('touchstart', toggleMenu);
+            </script>
 
-            btnMobile.addEventListener('click', toggleMenu);</script>
     </header>
-
 
     <main class="container">
 
@@ -74,18 +85,12 @@
                 <video class="video" src="Fundo Virtual Vídeo Submarino.mp4" autoplay muted loop></video>
             </div>
 
-
         </section>
-
-
 
         <div class="cta">
             <a href="https://brasil.un.org/pt-br/sdgs" target="_blank" class="btn">Conheça os Objetivos Sustentáveis</a>
             <a href="#apoie" class="btn">Apoie</a>
-
         </div>
-
-
 
         <div class="btn-scroll">
             <a href="#sobre">
@@ -108,7 +113,6 @@
                     salvaguardar os ecossistemas costeiros e garantir que as gerações futuras possam desfrutar dos
                     benefícios que os oceanos nos proporcionam.
                 </p>
-
             </div>
         </section>
 
@@ -137,16 +141,25 @@
         </div>
 
         <div class="section" id="apoie">
-            <h2>Apoie</h2>
+            <h2></h2>
             <div class="form">
-                <p>Preencha suas informações e envie para participar de programas e projetos a favor da preservação dos
-                    oceanos.</p>
+                Aprendendo de uma forma interativa.</p>
+                <p>*JOGO- COLETA</p>
+                Este é um jogo divertido onde você precisa eliminar objetos em movimento.
+                Use o mouse para clicar nos objetos (papel, maçã e garrafa) quando eles aparecerem.
+                Você tem 3 vidas. Se um objeto ultrapassar uma certa posição, você perderá uma vida.
+                Se perder todas as vidas, o jogo acabará</p>
+               
+
+                <p>*QUIZ</p>
+                Divirta-se jogando o quiz e teste seus conhecimentos<p>
+
                 <form action="" id="formulario">
-                    <div>
-                        <label for="nome">Nome</label><br>
+                   <!--  <div>
+                        <label for="nome">Comentários</label><br>
                         <input type="text" name="nome" id="nome">
                     </div>
-                    <div>
+                  <div>
                         <label for="sobrenome">Sobrenome</label><br>
                         <input type="text" name="sobrenome" id="sobrenome">
                     </div>
@@ -157,9 +170,9 @@
                     <div>
                         <label for="telefone">Telefone</label><br>
                         <input type="text" name="telefone" id="telefone">
-                    </div>
+                    </div
 
-                    <button class="btn">Enviar</button>
+                    <button class="btn">Enviar</button>--> 
                 </form>
             </div>
         </div>
